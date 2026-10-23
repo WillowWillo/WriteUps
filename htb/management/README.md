@@ -1,4 +1,4 @@
-# Management — Hack The Box (Medium)
+# Management — Hack The Box (Easy)
 
 Write-up da máquina **Management** do Hack The Box, cobrindo o acesso inicial via RCE no OpenAM, a enumeração interna e exploração do MariaDB, e a escalação de privilégio final via injeção de argumentos no `rdiff-backup`.
 
@@ -7,7 +7,7 @@ Write-up da máquina **Management** do Hack The Box, cobrindo o acesso inicial v
 ## 🛠️ Resumo da Máquina
 
 * **SO:** Linux
-* **Dificuldade:** Medium
+* **Dificuldade:** Easy
 * **Vetor Web (Initial Access):** Command Injection no ForgeRock OpenAM (`/openam/ui/PWResetUserValidation`)
 * **Movimentação Lateral / Enumeração:** Acesso a bancos de dados locais (MariaDB) contendo credenciais e configurações de serviços internos.
 * **Vetor Root (Privilege Escalation):** Escalation via `sudo` com `rdiff-backup` (Bypass do `--restrict-path`).

@@ -48,7 +48,7 @@ Com o acesso como usuário interno (owen), a fase de enumeração buscou arquivo
 
     Consulta e Descriptografia: Conectando-se ao MariaDB (mysql -u [usuario] -p), realizaram-se consultas nas tabelas de usuários e sessões da aplicação. Como sistemas como o GLPI armazenam credenciais ou chaves de criptografia (muitas vezes utilizando funções como o sodium_crypto_aead_xchacha20poly1305_ietf_decrypt), mapeou-se a base para recuperar hashes ou senhas em texto plano de outros usuários do sistema, auxiliando na compreensão do ambiente interno e validação de privilégios.
 
-4. Escalação de Privilégio (Privilege Escalation)
+## 4. Escalação de Privilégio (Privilege Escalation)
 
 Inspecionando os privilégios do usuário via sudo -l, identificou-se a regra permitindo executar o rdiff-backup:
 Plaintext

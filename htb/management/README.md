@@ -1,6 +1,6 @@
 Markdown
 
-# Management — Hack The Box (Medium)
+# Management — Hack The Box (Easy)
 
 Write-up da máquina **Management** do Hack The Box, cobrindo o vetor de acesso inicial via RCE em aplicação OpenAM e escalação de privilégio através de injeção de argumentos no `rdiff-backup`.
 

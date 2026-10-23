@@ -53,9 +53,10 @@ Com o acesso como usuário interno (owen), a fase de enumeração buscou arquivo
 Inspecionando os privilégios do usuário via sudo -l, identificou-se a regra permitindo executar o rdiff-backup:
 Plaintext
 
+```
 User owen may run the following commands on management:
     (root) NOPASSWD: /usr/bin/rdiff-backup --server --restrict-path /opt/backup --restrict-mode read-only *
-
+```
 Exploração da vulnerabilidade no rdiff-backup
 
 A regra do sudo limitava a execução ao diretório /opt/backup via --restrict-path. Contudo, a sintaxe de conexão remota do rdiff-backup (/::/root) permitiu injetar o argumento --restrict-path / no comando executado pelo sudo, sobrescrevendo a restrição anterior de /opt/backup.

